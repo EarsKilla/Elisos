@@ -44,8 +44,15 @@ for (i = 0; i < SNOW_no; ++i) {
 	SNOW_am[i] = Math.random() * 20;
 	SNOW_stx[i] = 0.02 + Math.random() / 10;
 	SNOW_sty[i] = 0.7 + Math.random();
-	if (i == 0) document.write("<\div id=\"SNOW_flake" + i + "\" style=\"position: absolute; z-index: " + i + "; visibility: visible; top: 15px; left: 15px; width: " + SNOW_Width + "; height: " + SNOW_Height + "; background: url('" + SNOW_Picture + "') no-repeat;\"><\/div>");
-	else document.write("<\div id=\"SNOW_flake" + i + "\" style=\"position: absolute; z-index: " + i + "; visibility: visible; top: 15px; left: 15px; width: " + SNOW_Width + "; height: " + SNOW_Height + "; background: url('" + SNOW_Picture + "') no-repeat;\"><\/div>");
+	var __rotation = getRandomInt(0, 50);
+	if (i == 0) document.write("<\div id=\"SNOW_flake" + i + "\" style=\"transform: rotate("+ __rotation +"deg); position: absolute; z-index: " + i + "; visibility: visible; top: 15px; left: 15px; width: " + SNOW_Width + "; height: " + SNOW_Height + "; background: url('" + SNOW_Picture + "') no-repeat;\"><\/div>");
+	else document.write("<\div id=\"SNOW_flake" + i + "\" style=\"transform: rotate("+ __rotation +"deg); position: absolute; z-index: " + i + "; visibility: visible; top: 15px; left: 15px; width: " + SNOW_Width + "; height: " + SNOW_Height + "; background: url('" + SNOW_Picture + "') no-repeat;\"><\/div>");
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
 function SNOW_Weather() {
